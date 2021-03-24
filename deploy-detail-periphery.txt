@@ -298,3 +298,31 @@ Deploy time: 2021/3/18 下午5:50:20
 Deploy type: DODOToken
 DODOTokenAddress:  0x19DA73be23Cea6bFA804Ec020041b8F3971BC522
 MultiCallAddress:  0x1Cc229Ac0ef9ba932e4dEbB898C77901C9AFB694
+====================================================
+network type: kovan
+Deploy time: 2021/3/23 上午10:41:03
+Deploy type: LockedVault
+====================================================
+network type: kovan
+Deploy time: 2021/3/23 上午10:42:26
+Deploy type: LockedVault
+LockedVault address:  0x278BfE31c9163A07d65b202981B19f04a7b056D6
+====================================================
+network type: kovan
+Deploy time: 2021/3/23 上午10:46:52
+Deploy type: LockedVault
+LockedVault address:  0xA7a1f923b4EaB55C2A7407F41a9c2Ae1bd2e4D34
+====================================================
+network type: kovan
+Deploy time: 2021/3/23 上午11:02:56
+Deploy type: LockedVault
+====================================================
+network type: kovan
+Deploy time: 2021/3/23 上午11:04:30
+Deploy type: LockedVault
+LockedVault address:  0x357dd84CaAe4b30Ab3830ed9bfcF16d2982139B4
+====================================================
+network type: kovan
+Deploy time: 2021/3/23 下午4:41:08
+Deploy type: LockedVault
+LockedVault address:  0x26B427648e73c8B2B5207BA3a4a56E810676A3A3

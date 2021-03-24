@@ -53,7 +53,8 @@ module.exports = {
     DVM:            false,
     CP:             false,
     CPFactory:      false,
-    MultiCall:      false
+    MultiCall:      false,
+    LockedVault:    false
   },
 
   networks: {
