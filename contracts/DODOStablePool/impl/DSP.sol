@@ -10,17 +10,17 @@ pragma experimental ABIEncoderV2;
 
 import {IFeeRateModel} from "../../lib/FeeRateModel.sol";
 import {IERC20} from "../../intf/IERC20.sol";
-import {DVMTrader} from "./DVMTrader.sol";
-import {DVMFunding} from "./DVMFunding.sol";
-import {DVMVault} from "./DVMVault.sol";
+import {DSPTrader} from "./DSPTrader.sol";
+import {DSPFunding} from "./DSPFunding.sol";
+import {DSPVault} from "./DSPVault.sol";
 
 /**
- * @title DODO VendingMachine
+ * @title DODO StablePool
  * @author DODO Breeder
  *
- * @notice DODOVendingMachine initialization
+ * @notice DODOStablePool initialization
  */
-contract DVM is DVMTrader, DVMFunding {
+contract DSP is DSPTrader, DSPFunding {
     function init(
         address maintainer,
         address baseTokenAddress,
@@ -31,8 +31,8 @@ contract DVM is DVMTrader, DVMFunding {
         uint256 k,
         bool isOpenTWAP
     ) external {
-        require(!_DVM_INITIALIZED_, "DVM_INITIALIZED");
-        _DVM_INITIALIZED_ = true;
+        require(!_DSP_INITIALIZED_, "DSP_INITIALIZED");
+        _DSP_INITIALIZED_ = true;
         
         require(baseTokenAddress != quoteTokenAddress, "BASE_QUOTE_CAN_NOT_BE_SAME");
         _BASE_TOKEN_ = IERC20(baseTokenAddress);
@@ -49,7 +49,7 @@ contract DVM is DVMTrader, DVMFunding {
         _MAINTAINER_ = maintainer;
 
         _IS_OPEN_TWAP_ = isOpenTWAP;
-        if(isOpenTWAP) _BLOCK_TIMESTAMP_LAST_ = uint32(block.timestamp % 2**32);
+        if (isOpenTWAP) _BLOCK_TIMESTAMP_LAST_ = uint32(block.timestamp % 2**32);
 
         string memory connect = "_";
         string memory suffix = "DLP";
@@ -89,8 +89,8 @@ contract DVM is DVMTrader, DVMFunding {
     }
 
     // ============ Version Control ============
-    
+
     function version() external pure returns (string memory) {
-        return "DVM 1.0.2";
+        return "DSP 1.0.0";
     }
 }

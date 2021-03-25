@@ -16,13 +16,12 @@ import {IFeeRateModel} from "../../lib/FeeRateModel.sol";
 import {IERC20} from "../../intf/IERC20.sol";
 import {PMMPricing} from "../../lib/PMMPricing.sol";
 
-contract DVMStorage is ReentrancyGuard {
+contract DSPStorage is ReentrancyGuard {
     using SafeMath for uint256;
 
+    bool internal _DSP_INITIALIZED_;
     bool public _IS_OPEN_TWAP_ = false;
-
-    bool internal _DVM_INITIALIZED_;
-
+    
     // ============ Core Address ============
 
     address public _MAINTAINER_;
@@ -33,8 +32,12 @@ contract DVMStorage is ReentrancyGuard {
     uint112 public _BASE_RESERVE_;
     uint112 public _QUOTE_RESERVE_;
     uint32 public _BLOCK_TIMESTAMP_LAST_;
-
+    
     uint256 public _BASE_PRICE_CUMULATIVE_LAST_;
+
+    uint112 public _BASE_TARGET_;
+    uint112 public _QUOTE_TARGET_;
+    uint32 public _RState_;
 
     // ============ Shares (ERC20) ============
 
@@ -50,16 +53,17 @@ contract DVMStorage is ReentrancyGuard {
 
     bytes32 public DOMAIN_SEPARATOR;
     // keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
-    bytes32 public constant PERMIT_TYPEHASH = 0x6e71edae12b1b97f4d1f60370fef10105fa2faae0126114a169c64845d6126c9;
+    bytes32 public constant PERMIT_TYPEHASH =
+        0x6e71edae12b1b97f4d1f60370fef10105fa2faae0126114a169c64845d6126c9;
     mapping(address => uint256) public nonces;
 
     // ============ Variables for Pricing ============
 
-    uint256 public _LP_FEE_RATE_;
     IFeeRateModel public _MT_FEE_RATE_MODEL_;
+
+    uint256 public _LP_FEE_RATE_;
     uint256 public _K_;
     uint256 public _I_;
-
 
     // ============ Helper Functions ============
 
@@ -68,15 +72,15 @@ contract DVMStorage is ReentrancyGuard {
         state.K = _K_;
         state.B = _BASE_RESERVE_;
         state.Q = _QUOTE_RESERVE_;
-        state.B0 = 0; // will be calculated in adjustedTarget
-        state.Q0 = 0;
-        state.R = PMMPricing.RState.ABOVE_ONE;
+        state.B0 = _BASE_TARGET_; // will be calculated in adjustedTarget
+        state.Q0 = _QUOTE_TARGET_;
+        state.R = PMMPricing.RState(_RState_);
         PMMPricing.adjustedTarget(state);
     }
 
-    function getPMMStateForCall() 
-        external 
-        view 
+    function getPMMStateForCall()
+        external
+        view
         returns (
             uint256 i,
             uint256 K,

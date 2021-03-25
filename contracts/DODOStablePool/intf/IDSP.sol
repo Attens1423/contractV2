@@ -8,7 +8,7 @@
 pragma solidity 0.6.9;
 pragma experimental ABIEncoderV2;
 
-interface IDVM {
+interface IDSP {
     function init(
         address maintainer,
         address baseTokenAddress,
@@ -32,6 +32,5 @@ interface IDVM {
 
     function sellQuote(address to) external returns (uint256);
 
-    function buyShares(address to) external returns (uint256,uint256,uint256);
-
+    function buyShares(address to) external returns (uint256);
 }

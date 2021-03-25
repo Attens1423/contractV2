@@ -1,5 +1,5 @@
 #!/bin/bash
-truffle compile --all
+# truffle compile --all
 
 if [ "$1"x = "proxy-dpp"x ]
 then
@@ -31,10 +31,21 @@ then
 	truffle test ./test/V2Proxy/proxy.incentive.test.ts
 fi
 
+if [ "$1"x = "proxy-incentive-bsc"x ]
+then
+	truffle test ./test/V2Proxy/proxy.incentive.bsc.test.ts
+fi
+
 if [ "$1"x = "proxy-twap"x ]
 then
 	truffle test ./test/V2Proxy/proxy.twap.test.ts
 fi
+
+if [ "$1"x = "vdodo-mintRedeem"x ]
+then
+	truffle test ./test/vDODO/mintRedeem.test.ts
+fi
+
 
 # if [ "$1"x = "route-incentive"x ]
 # then

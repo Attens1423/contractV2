@@ -38,14 +38,23 @@ module.exports = {
    * $ truffle test --network <network-name>
    */
   deploySwitch: {
-    DEPLOY_V1:        true,
-    DEPLOY_V2:        false,
-    ADAPTER:          false,
-    MOCK_TOKEN:       false,
-    MOCK_V2_POOL:     false,
-    MOCK_V2_SWAP:     false,
-    MANUAL_ADD_POOL:  false,
-    MOCK_TARGET_POOL: false
+    DEPLOY_V1:      false,
+    DEPLOY_V2:      false,
+    ADAPTER:        false,
+    MOCK_TOKEN:     false,
+    MOCK_V2_POOL:   false,
+    vDODOToken:     false,
+    DODORecharge:   false,
+    MINE:           false,
+    FEERATEIMPL:    false,
+    WETH:           false,
+    DODO:           false,
+    UpCP:           false,
+    DVM:            false,
+    CP:             false,
+    CPFactory:      false,
+    MultiCall:      false,
+    LockedVault:    false
   },
 
   networks: {
@@ -62,6 +71,7 @@ module.exports = {
       gas: 1000000000,
       gasPrice: 1,
     },
+
     kovan: {
       networkCheckTimeout: 100000,
       provider: function () {
@@ -72,16 +82,18 @@ module.exports = {
       network_id: 42,
       skipDryRun: true
     },
+
     live: {
       networkCheckTimeout: 100000,
       provider: function () {
         return new HDWalletProvider(privKey, "https://mainnet.infura.io/v3/" + infuraId);
       },
       gas: 6000000,
-      gasPrice: 80000000000,
+      gasPrice: 200000000000,
       network_id: 1,
       skipDryRun: true
     },
+
     bsclive: {
       provider: function () {
         return new HDWalletProvider(privKey, "https://bsc-dataseed1.binance.org");
@@ -91,6 +103,32 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true
     },
+
+    heco: {
+      provider: function () {
+        return new HDWalletProvider(privKey, "https://http-mainnet.hecochain.com");
+      },
+      gasPrice: 1500000000,
+      network_id: 128
+    },
+
+    mbtestnet: {
+      provider: () => {
+        return new HDWalletProvider(privKey, 'https://moonbeam-rpc.dodoex.io');
+      },
+      network_id: 1281,
+    },
+
+    oktest: {
+      provider: () => {
+        return new HDWalletProvider(privKey, 'https://exchaintest.okexcn.com')
+      },
+      network_id: 65,
+      confirmations: 10,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+
     coverage: {
       host: "127.0.0.1",
       port: 6545,
