@@ -43,4 +43,10 @@ interface IDODOCallee {
         uint256 quoteAmount,
         bytes calldata data
     ) external;
+
+    function NFTRedeemCall(
+        address payable assetTo,
+        uint256 quoteAmount,
+        bytes calldata
+    ) external;
 }
