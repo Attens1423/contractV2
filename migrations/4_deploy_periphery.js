@@ -16,6 +16,7 @@ const DODOToken = artifacts.require("DODOToken");
 const UpCrowdPoolingFactory = artifacts.require("UpCrowdPoolingFactory");
 const CpFactory = artifacts.require("CrowdPoolingFactory");
 const MultiCall = artifacts.require("Multicall");
+const DODOUpCpProxy = artifacts.require("DODOUpCpProxy");
 
 module.exports = async (deployer, network, accounts) => {
     let CONFIG = GetConfig(network, accounts)
@@ -23,6 +24,7 @@ module.exports = async (deployer, network, accounts) => {
 
     let DODOTokenAddress = CONFIG.DODO;
     let DODOApproveProxyAddress = CONFIG.DODOApproveProxy;
+    let WETH = CONFIG.WETH;
 
     let DODOCirculationHelperAddress = CONFIG.DODOCirculationHelper;
     let GovernanceAddress = CONFIG.Governance;
@@ -35,9 +37,24 @@ module.exports = async (deployer, network, accounts) => {
     let CpTemplateAddress = CONFIG.CP;
     let DvmFactoryAddress = CONFIG.DVMFactory;
     let DvmTemplateAddress = CONFIG.DVM;
+    let UpCpFactoryAddress = CONFIG.UpCpFactory;
 
     let multiSigAddress = CONFIG.multiSigAddress;
     let defaultMaintainer = CONFIG.defaultMaintainer;
+
+    if(deploySwitch.UpCpProxy) {
+        logger.log("====================================================");
+        logger.log("network type: " + network);
+        logger.log("Deploy time: " + new Date().toLocaleString());
+        logger.log("Deploy type: DODOUpCpProxy");
+        await deployer.deploy(
+            DODOUpCpProxy,
+            UpCpFactoryAddress,
+            WETH
+        );
+        logger.log("DODOUpCpProxy address: ", DODOUpCpProxy.address);
+    }
+
 
     if (deploySwitch.UpCP) {
         logger.log("====================================================");

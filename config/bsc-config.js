@@ -44,6 +44,7 @@ module.exports = {
 
         //Proxy
         DODOV2Proxy: "",
+        DODOUpCpProxy: "",
 
         //vDODO
         DODOCirculationHelper: "",

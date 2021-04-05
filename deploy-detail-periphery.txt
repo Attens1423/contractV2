@@ -292,3 +292,18 @@ Deploy time: 2021/3/15 下午9:02:47
 Deploy type: WETH9
 WETH9Address:  0xF8cef78E923919054037a1D03662bBD884fF4edf
 MultiCallAddress:  0xb61c30c1612504d334b39E5172D8215cb5Ad576C
+====================================================
+network type: kovan
+Deploy time: 2021/4/4 下午7:38:57
+Deploy type: DODOUpCpProxy
+DODOUpCpProxy address:  0xCBE1624d045B7162585e0E742182709e957F3617
+====================================================
+network type: kovan
+Deploy time: 2021/4/4 下午7:49:04
+Deploy type: DODOUpCpProxy
+DODOUpCpProxy address:  0x64cCB307306033bb49A80C823c5DDaA56657EF23
+====================================================
+network type: kovan
+Deploy time: 2021/4/4 下午7:51:04
+Deploy type: DODOUpCpProxy
+DODOUpCpProxy address:  0x3D8e5383b2971A6e50041a0c4C95733f8951635d
