@@ -307,3 +307,8 @@ network type: kovan
 Deploy time: 2021/4/4 下午7:51:04
 Deploy type: DODOUpCpProxy
 DODOUpCpProxy address:  0x3D8e5383b2971A6e50041a0c4C95733f8951635d
+====================================================
+network type: live
+Deploy time: 2021/4/6 下午3:23:41
+Deploy type: DODOUpCpProxy
+DODOUpCpProxy address:  0x6cCD6172A0fBf236ab927ACF56Fcc7fC6eB34991
