@@ -312,3 +312,8 @@ network type: live
 Deploy time: 2021/4/6 下午3:23:41
 Deploy type: DODOUpCpProxy
 DODOUpCpProxy address:  0x6cCD6172A0fBf236ab927ACF56Fcc7fC6eB34991
+====================================================
+network type: live
+Deploy time: 2021/4/7 上午11:44:18
+Deploy type: DODOUpCpProxy
+DODOUpCpProxy address:  0xa3cA30a7D523959fDDF7C9800C7121211B559D24

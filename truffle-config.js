@@ -54,7 +54,8 @@ module.exports = {
     CP:                 false,
     CPFactory:          false,
     MultiCall:          false,
-    UpCpProxy:          false
+    UpCpProxy:          false,
+    DEPLOY_NFT:         false
   },
 
   networks: {
@@ -89,7 +90,7 @@ module.exports = {
         return new HDWalletProvider(privKey, "https://mainnet.infura.io/v3/" + infuraId);
       },
       gas: 6000000,
-      gasPrice: 110000000000,
+      gasPrice: 140000000000,
       network_id: 1,
       skipDryRun: true
     },

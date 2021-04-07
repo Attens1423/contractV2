@@ -43,7 +43,7 @@ module.exports = {
 
         //Proxy
         DODOV2Proxy: "",
-        DODOUpCpProxy: "0x6cCD6172A0fBf236ab927ACF56Fcc7fC6eB34991",
+        DODOUpCpProxy: "0xa3cA30a7D523959fDDF7C9800C7121211B559D24",
 
         //vDODO
         DODOCirculationHelper: "0x357c5e9cfa8b834edcef7c7aabd8f9db09119d11",
